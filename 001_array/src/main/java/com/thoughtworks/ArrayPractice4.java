@@ -7,7 +7,22 @@ public class ArrayPractice4 {
      */
     public static int[] insert(int number) {
         int[] array = new int[]{1, 20, 50, 100};
-
-        return null;
+        int insertIndex = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (number > array[i]) {
+                insertIndex = i + 1;
+            }
+        }
+        int[] newArr = new int[array.length + 1];
+        for (int i = 0; i < newArr.length; i++) {
+            if (i < insertIndex) {
+                newArr[i] = array[i];
+            } else if (i == insertIndex) {
+                newArr[i] = number;
+            } else {
+                newArr[i] = array[i - 1];
+            }
+        }
+        return newArr;
     }
 }
